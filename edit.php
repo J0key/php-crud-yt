@@ -39,18 +39,39 @@ if (isset($_POST["submit"])) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <title>PHP CRUD Application</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
 </head>
 
 <body>
-  <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #00ff5573;">
-    PHP Complete CRUD Application
-  </nav>
 
+
+  <section id="contact" class="pt-36 pb-32 dark:bg-slate-800">
   <div class="container">
-    <div class="text-center mb-4">
-      <h3>Edit User Information</h3>
-      <p class="text-muted">Click update after changing any information</p>
-    </div>
+  <div class="w-full px-4">
+            <div class="max-w-xl mx-auto text-center mb-16">
+              <h2
+                class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white"
+              >
+                Edit 
+              </h2>
+              <p class="font-medium text-md text-secondary md:text-lg">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero,
+                doloremque!
+              </p>
+            </div>
+          </div>
 
     <?php
     $sql = "SELECT * FROM `crud` WHERE id = $id LIMIT 1";
@@ -88,7 +109,7 @@ if (isset($_POST["submit"])) {
         </div>
 
         <div>
-          <button type="submit" class="btn btn-success" name="submit">Update</button>
+          <button type="submit" class="btn bg-green-500 text-white" name="submit">Update</button>
           <a href="index.php" class="btn btn-danger">Cancel</a>
         </div>
       </form>

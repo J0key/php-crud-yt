@@ -38,18 +38,41 @@ if (isset($_POST["submit"])) {
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
    <title>PHP CRUD Application</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
 </head>
 
 <body>
-   <nav class="navbar navbar-light justify-content-center fs-3 mb-5" style="background-color: #00ff5573;">
-      PHP Complete CRUD Application
-   </nav>
+
+
+<section id="contact" class="pt-36 pb-32 dark:bg-slate-800">
+  <div class="container">
+  <div class="w-full px-4">
+            <div class="max-w-xl mx-auto text-center mb-16">
+              <h2
+                class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white"
+              >
+                Add User
+              </h2>
+              <p class="font-medium text-md text-secondary md:text-lg">
+              Complete the form below to add a new user
+              </p>
+            </div>
+          </div>
 
    <div class="container">
-      <div class="text-center mb-4">
-         <h3>Add New User</h3>
-         <p class="text-muted">Complete the form below to add a new user</p>
-      </div>
+
 
       <div class="container d-flex justify-content-center">
          <form action="" method="post" style="width:50vw; min-width:300px;">
@@ -81,15 +104,17 @@ if (isset($_POST["submit"])) {
             </div>
 
             <div>
-               <button type="submit" class="btn btn-success" name="submit">Save</button>
+               <button type="submit" class="btn bg-green-500 text-white" name="submit">Save</button>
                <a href="index.php" class="btn btn-danger">Cancel</a>
             </div>
          </form>
       </div>
    </div>
+</section>
 
    <!-- Bootstrap -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+   <script src="/script.js"></script>
 
 </body>
 
